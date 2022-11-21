@@ -25,6 +25,8 @@ Home value will depend heavily on the bedrooms, bathrooms and square footage of 
        * sqft
        * fips
        * property_value
+       * total rooms 
+
  
 * Explore data in search of drivers of propety value
    * Answer the following initial questions
@@ -32,7 +34,6 @@ Home value will depend heavily on the bedrooms, bathrooms and square footage of 
        * What is the mean home price?
        * Is there a signfiicant difference in property value across the three counties?
        * Is there a correlation between square footage and property value?
-       * Is there a correlation between the bedrooms and property value?
        * Is there a correlation between the bathrooms and property value?
       
 * Develop a Model to predict an accurate value of the property
@@ -51,7 +52,7 @@ Home value will depend heavily on the bedrooms, bathrooms and square footage of 
 |Beds| Number of bedrooms in the home|
 |Baths| Number of bathrooms in the home|
 |sqft| The square footage of the home|
-|room count| Represents the total number of rooms in the home|
+|rooms_count| Represents the total number of rooms in the home|
 |fips| The county the property is located in Los Angelese County CA, Ventura CA or Orange County CA|
 
 # Steps to Reproduce
@@ -65,17 +66,18 @@ def get_db_url(db, user = username, host = host, password = password):
 6) Run notebook
  
 # Takeaways and Conclusions
-* The median property value is 316,213
-* Statistical evidence supports correlations between property value and bedrooms, bathrooms and square feet of a home
-* My model uses bathrooms and home square footage as drivers for determine home value
-* There were very weak correlations between property value and bedrooms and total rooms in a home.
+- The median property value is 304,004 dollars
+- Statistical evidence supports correlations between property value and bedrooms, bathrooms, total rooms and square feet of a home respectively
+- Statistical testing supports a significant relationship between fips code and property value 
+- There appears to be a higher frequency of homes being sold in Los Angeles compared to the other counties
+- There is a significant difference in the mean property value of the homes across Los Angeles, Ventura and Orange County 
 
 
 # Recommendations
-* Use DS team to determine strategy to impute null values for location features 
-* Determine strategy for team to analyze location features relationship to home value
+* Have a meeting to discuss how to analyze features specifc to location
+* Request more data to balance out the representation of transactions in Orange County and Ventura County 
 
 
 # Next Steps
-* The next steps of this project would be to statistically test location features impact on predicting home value
-* Review the data to determine if there are a similar amount of transactions across the three counties or if significantly more transactions occur in Los Angeles 
+* Take time to build a model solely based on location features
+* Look further into Los Angeles transactions impact on data
