@@ -6,22 +6,6 @@ import pandas as pd
 from scipy import stats
 from tabulate import tabulate
 
-def rooms_count(train):
-    #Feature Engineering adding an additional column
-    train['rooms_count']= train['baths']+train['beds']
-
-    # reset index 
-    train=train.reset_index()  
-
-    #Rounding up in rooms count 
-    train['rooms_count'] = train['rooms_count'].apply(np.ceil)
-
-    #Rounding up in bathrooms count 
-    train['baths'] = train['baths'].apply(np.ceil)
-
-    return train  
-    
-
 def statistic_table(df):
     ''' This function will create a table of information '''
     #calculating median of property values 
@@ -52,13 +36,13 @@ def value_counts(df):
     
 
 def boxplot(df,column,Title):
-    ''' this function will provide a boxplot of the data'''
+    ''' this function will provide a boxplot of data'''
     # creating boxplot 
     sns.boxplot(df[column]).set(title= Title)
 
-def two_variable_boxplots(df,x,y,Title):
-    # box plot Bedrooms vs Property value 
-    sns.boxplot(data=df, x=df[x], y=df[y]).set(title= Title)
+def two_variable_boxplots(df,column,Title):
+    # box plot feature vs Property value 
+    sns.boxplot(data=df, x=df[column], y=df['property_value']).set(title= Title)
 
 def hists(train):
     '''this function will produce histograms of property values for each county'''
