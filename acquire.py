@@ -6,7 +6,7 @@ def new_zillow_data():
     '''
     This function reads the zillow data from the Codeup db into a df.
     '''
-    # Create SQL query.
+    # SQL query to retreive zillow data
     sql_query = """SELECT bedroomcnt,bathroomcnt,fips,calculatedfinishedsquarefeet,taxvaluedollarcnt
                 FROM predictions_2017
                 JOIN properties_2017 using (parcelid)
@@ -16,7 +16,7 @@ def new_zillow_data():
     # Read in DataFrame from Codeup db.
     df = pd.read_sql(sql_query, get_db_url('zillow'))
 
-    # Save data to csv 
+    # Save data to csv locally
     filepath = Path('zillow.csv')
     filepath.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(filepath, index =False)
