@@ -88,8 +88,8 @@ def scatter_plot(train):
     '''this function will produce a scatter plot of data'''
     #visualization of sqft vs property value 
     sns.regplot(x="sqft",
-                y="property_value", 
-                data=train).set(title='Sqft and Value')
+            y="property_value", 
+            data=train, scatter_kws={"color": "blue"}, line_kws={"color": "red"}).set(title='Sqft and Value')
 
 def correlation_stat_test(df,column):
     '''this function will produce results of pearsonr test'''
